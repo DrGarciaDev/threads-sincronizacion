@@ -1,13 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/**
- *
- * @author luis_
- */
-public class Depositar {
-    
+public class Depositar implements Runnable{
+    List<String> dinero;
+    public Depositar(List<String> dinero){
+        this.dinero = dinero;
+    }
+    public void run(){
+        try {
+            Thread.sleep(2000);
+            synchronized(dinero){
+                SuperClase.saldo = SuperClase.saldo + 100;
+                dinero.notify();
+                System.out.println("En este momento se depositaron 100 $");
+            }
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Depositar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
