@@ -14,12 +14,12 @@ public class Principal {
         Thread hsal     = new Thread(sal);
         Retirar ret     = new Retirar(dinero);
         Depositar dep   = new Depositar(dinero);
-        Thread cliente1 = new Thread(ret);
-        Thread cliente2 = new Thread(ret);
-        Thread cliente3 = new Thread(ret);
-        Thread cliente4 = new Thread(ret);
-        Thread cliente5 = new Thread(ret);
-        Thread cajero   = new Thread(dep);
+        Thread cliente1 = new Thread(ret,"Juan");
+        Thread cliente2 = new Thread(ret,"Jose");
+        Thread cliente3 = new Thread(ret,"Javier");
+        Thread cliente4 = new Thread(ret,"Jonas");
+        Thread cliente5 = new Thread(ret,"Jorge");
+        Thread cajero   = new Thread(dep,"CAJERO PEDRO");
         
         hsal.start();
         cliente1.start();

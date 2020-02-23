@@ -13,14 +13,14 @@ public class Retirar implements Runnable{
         synchronized (dinero) {
             if(SuperClase.saldo == 0.0){
                 try {
+                    System.out.println("Hola soy " + Thread.currentThread().getName() + " No hay dinero en el cajero");
                     dinero.wait();
-                    System.out.println("No hay dinero en el cajero");
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Retirar.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             SuperClase.saldo = SuperClase.saldo - 100;
-            System.out.println("En este momento retiré 100 pesos");
+            System.out.println("En este momento " + Thread.currentThread().getName() + " retiró 100 pesos");
         }
     }
 }

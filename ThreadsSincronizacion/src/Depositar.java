@@ -8,15 +8,17 @@ public class Depositar implements Runnable{
         this.dinero = dinero;
     }
     public void run(){
-        try {
-            Thread.sleep(2000);
-            synchronized(dinero){
-                SuperClase.saldo = SuperClase.saldo + 100;
-                dinero.notify();
-                System.out.println("En este momento se depositaron 100 $");
+        while(true){
+            try {
+                Thread.sleep(2000);
+                synchronized(dinero){
+                    SuperClase.saldo = SuperClase.saldo + 100;
+                    dinero.notify();
+                    System.out.println("En este momento se depositaron 100 $");
+                }
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Depositar.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Depositar.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
