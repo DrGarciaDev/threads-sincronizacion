@@ -1,3 +1,3 @@
 public class SuperClase {
-    static double saldo = 0.0;
+    static double saldo = 1000.0;
 }

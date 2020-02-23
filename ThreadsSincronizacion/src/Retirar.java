@@ -19,6 +19,7 @@ public class Retirar implements Runnable{
                     Logger.getLogger(Retirar.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
+            SuperClase.saldo = SuperClase.saldo - 100;
             System.out.println("En este momento retiré 100 pesos");
         }
     }
